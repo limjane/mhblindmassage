@@ -3,12 +3,12 @@
   "business": {
     "nameEn": "M H Blind Massage Center",
     "nameZh": "巧手堂盲人按摩推拿中心",
-    "phone": "+60 1X-XXX XXXX",
-    "whatsapp": "",
-    "addressEn": "[Full street address here], Simpang Ampat, Pulau Pinang, Malaysia",
-    "addressZh": "[完整街道地址]，Simpang Ampat, Pulau Pinang, Malaysia",
+    "phone": "+60 16-523 8937",
+    "whatsapp": "60165238937",
+    "addressEn": "98, Jln Tasek SS1, Bandar Tasek Mutiara, 14120, Simpang Ampat, Penang, Malaysia",
+    "addressZh": "98, Jln Tasek SS1, Bandar Tasek Mutiara, 14120, Simpang Ampat, Penang, Malaysia",
     "facebook": "https://www.facebook.com/share/18bWiW5wuR/",
-    "mapsUrl": "https://maps.google.com/?q=5.284148,100.483452",
+    "mapsUrl": "https://maps.google.com/?q=98+Jln+Tasek+SS1,+Bandar+Tasek+Mutiara,+14120+Simpang+Ampat+Penang",
     "lat": 5.284148,
     "lng": 100.483452
   },
@@ -23,6 +23,7 @@
   },
   "services": [
     {
+      "id": "tuina",
       "icon": "tuina",
       "nameEn": "Full-Body Tuina 推拿",
       "nameZh": "全身推拿",
@@ -30,9 +31,11 @@
       "descZh": "深层而流畅的传统推拿，疏通经络、促进血液循环、恢复身体平衡。",
       "price": "RM XX",
       "durationEn": "60 min",
-      "durationZh": "60 分钟"
+      "durationZh": "60 分钟",
+      "bookingType": "studio"
     },
     {
+      "id": "foot",
       "icon": "foot",
       "nameEn": "Foot Reflexology",
       "nameZh": "脚底按摩",
@@ -40,9 +43,11 @@
       "descZh": "精准的足部反射区按压疗法——视障按摩师最引以为傲的经典手艺。",
       "price": "RM XX",
       "durationEn": "45 min",
-      "durationZh": "45 分钟"
+      "durationZh": "45 分钟",
+      "bookingType": "studio"
     },
     {
+      "id": "neck",
       "icon": "neck",
       "nameEn": "Shoulder & Neck Relief",
       "nameZh": "肩颈舒缓",
@@ -50,9 +55,11 @@
       "descZh": "专为上班族与驾驶人士而设，化解僵硬、头痛与肌肉结节。",
       "price": "RM XX",
       "durationEn": "30 min",
-      "durationZh": "30 分钟"
+      "durationZh": "30 分钟",
+      "bookingType": "studio"
     },
     {
+      "id": "cup",
       "icon": "cup",
       "nameEn": "Cupping & Gua Sha",
       "nameZh": "拔罐 · 刮痧",
@@ -60,7 +67,20 @@
       "descZh": "历史悠久的排毒疗法，祛湿散热、缓解酸痛、焕发活力。",
       "price": "RM XX",
       "durationEn": "session",
-      "durationZh": "次"
+      "durationZh": "次",
+      "bookingType": "studio"
+    },
+    {
+      "id": "housecall",
+      "icon": "tuina",
+      "nameEn": "House Visit Massage",
+      "nameZh": "上门按摩服务",
+      "descEn": "Professional therapists visit your home — ideal for those with mobility challenges or busy schedules. Call or text to book.",
+      "descZh": "按摩师到府服务——适合行动不便或日程繁忙的客户。请致电或短信预约。",
+      "price": "RM XX",
+      "durationEn": "60 min",
+      "durationZh": "60 分钟",
+      "bookingType": "housecall"
     }
   ]
 }

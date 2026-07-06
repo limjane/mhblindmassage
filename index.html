@@ -219,12 +219,28 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
 .bk-form{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;margin-top:2.4rem;max-width:760px}
 .bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.4rem}
 @media(max-width:640px){.bk-grid{grid-template-columns:1fr}}
+.bk-tabs{position:relative}
+.bk-tab{display:none}
+.bk-tab.active{display:block}
+.bk-tab h3{font-family:var(--serif);font-size:1.2rem;margin-bottom:1.2rem;color:var(--terra)}
 .bk-form label{display:block;font-size:.85rem;font-weight:700;color:var(--ink-soft);margin:.9rem 0 .3rem}
-.bk-form input,.bk-form select{width:100%;padding:.7rem .9rem;border:1.5px solid #e6d8c2;border-radius:10px;
+.bk-form input,.bk-form select,.bk-form textarea{width:100%;padding:.7rem .9rem;border:1.5px solid #e6d8c2;border-radius:10px;
   font:inherit;font-size:.95rem;background:var(--cream)}
-.bk-form input:focus,.bk-form select:focus{border-color:var(--terra)}
+.bk-form input:focus,.bk-form select:focus,.bk-form textarea:focus{border-color:var(--terra);outline:none}
 .bk-form .btn{margin-top:1.4rem;border:none;cursor:pointer}
 #bkStatus{margin-top:.9rem;font-size:.9rem;font-weight:600;color:var(--jade);min-height:1.4rem}
+.bk-housecall-info{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem}
+.bk-feature-list{margin:1.8rem 0}
+.bk-feature{display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1.2rem}
+.feature-icon{font-size:1.4rem;color:var(--jade);font-weight:700}
+.bk-feature b{display:block;margin-bottom:.2rem}
+.bk-feature span{font-size:.9rem;color:var(--ink-soft)}
+.bk-contact-cta{margin-top:2rem;padding-top:2rem;border-top:1px solid #e6d8c2}
+.bk-tab-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-tab{display:inline-block;padding:.85rem 1.8rem;border:2px solid var(--terra);background:transparent;
+  color:var(--terra);border-radius:999px;font-weight:700;cursor:pointer;transition:all .25s;font-size:.95rem}
+.btn-tab.active{background:var(--terra);color:var(--cream);box-shadow:0 6px 20px rgba(179,69,44,.25)}
+.btn-tab:hover{transform:translateY(-2px)}
 
 /* announcement pill (shown when enabled in site-config) */
 .announce{display:inline-block;background:#fff;border:1.5px solid var(--gold);color:var(--terra-deep);
@@ -475,32 +491,85 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
   <div class="wrap">
     <div class="reveal">
       <span class="sec-kicker"><span lang-en>Book a Session</span><span lang-zh>预约疗程</span></span>
-      <h2><span lang-en>Reserve your healing time</span><span lang-zh>预留您的疗愈时光</span></h2>
-      <p class="lead"><span lang-en>Fill in the form and it opens WhatsApp with your booking message ready to send — the easiest way for our therapists to receive it.</span><span lang-zh>填写表格后将自动打开 WhatsApp，预约信息已备好，按发送即可——这是按摩师最方便接收的方式。</span></p>
+      <h2><span lang-en>Choose your booking method</span><span lang-zh>选择您的预约方式</span></h2>
+      <p class="lead"><span lang-en>Studio sessions are booked via WhatsApp for convenience. House visits can be arranged by phone or text.</span><span lang-zh>工作室疗程可通过 WhatsApp 便捷预约。上门服务可通过电话或短信安排。</span></p>
     </div>
-    <form id="bkForm" class="bk-form reveal d1">
-      <div class="bk-grid">
-        <div><label for="bkName"><span lang-en>Your name</span><span lang-zh>姓名</span></label>
-          <input id="bkName" name="name" autocomplete="name" required></div>
-        <div><label for="bkService"><span lang-en>Service</span><span lang-zh>服务项目</span></label>
-          <select id="bkService" name="service">
-            <option>Full-Body Tuina 全身推拿</option>
-            <option>Foot Reflexology 脚底按摩</option>
-            <option>Shoulder &amp; Neck 肩颈舒缓</option>
-            <option>Cupping &amp; Gua Sha 拔罐刮痧</option>
-          </select></div>
-        <div><label for="bkDate"><span lang-en>Date</span><span lang-zh>日期</span></label>
-          <input id="bkDate" name="date" type="date" required></div>
-        <div><label for="bkTime"><span lang-en>Preferred time</span><span lang-zh>时间</span></label>
-          <input id="bkTime" name="time" type="time" required></div>
+
+    <!-- Studio Booking -->
+    <div class="bk-tabs">
+      <div class="bk-tab active" id="studioTab" role="tabpanel" aria-labelledby="studioBtn">
+        <h3><span lang-en>📍 Studio Session</span><span lang-zh>📍 工作室疗程</span></h3>
+        <form id="bkForm" class="bk-form reveal d1">
+          <div class="bk-grid">
+            <div><label for="bkName"><span lang-en>Your name</span><span lang-zh>姓名</span></label>
+              <input id="bkName" name="name" autocomplete="name" required></div>
+            <div><label for="bkService"><span lang-en>Service</span><span lang-zh>服务项目</span></label>
+              <select id="bkService" name="service" data-type="studio">
+                <option><span lang-en>Full-Body Tuina</span><span lang-zh>全身推拿</span></option>
+                <option><span lang-en>Foot Reflexology</span><span lang-zh>脚底按摩</span></option>
+                <option><span lang-en>Shoulder &amp; Neck</span><span lang-zh>肩颈舒缓</span></option>
+                <option><span lang-en>Cupping &amp; Gua Sha</span><span lang-zh>拔罐刮痧</span></option>
+              </select></div>
+            <div><label for="bkDate"><span lang-en>Date</span><span lang-zh>日期</span></label>
+              <input id="bkDate" name="date" type="date" required></div>
+            <div><label for="bkTime"><span lang-en>Preferred time</span><span lang-zh>时间</span></label>
+              <input id="bkTime" name="time" type="time" required></div>
+          </div>
+          <label for="bkPhone"><span lang-en>Phone number (if we need to confirm)</span><span lang-zh>电话号码（以防我们需要确认）</span></label>
+          <input id="bkPhone" name="phone" type="tel" autocomplete="tel" placeholder="+60 16-xxx xxxx">
+          <label for="bkNote"><span lang-en>Note (optional, e.g., areas of pain or discomfort)</span><span lang-zh>备注（可选，例如疼痛部位）</span></label>
+          <textarea id="bkNote" name="note" placeholder="e.g., lower back pain 例如下背痛"></textarea>
+          <button class="btn btn-primary" type="submit">
+            <span lang-en>📲 Send booking via WhatsApp</span><span lang-zh>📲 通过 WhatsApp 发送预约</span>
+          </button>
+          <p id="bkStatus" role="status" aria-live="polite"></p>
+        </form>
       </div>
-      <label for="bkNote"><span lang-en>Note (optional)</span><span lang-zh>备注（可选）</span></label>
-      <input id="bkNote" name="note">
-      <button class="btn btn-primary" type="submit">
-        <span lang-en>📲 Send booking via WhatsApp</span><span lang-zh>📲 通过 WhatsApp 发送预约</span>
+
+      <!-- House Visit Booking -->
+      <div class="bk-tab" id="housecallTab" role="tabpanel" aria-labelledby="housecallBtn">
+        <h3><span lang-en>🏠 House Visit</span><span lang-zh>🏠 上门服务</span></h3>
+        <div class="bk-housecall-info reveal d1">
+          <p><span lang-en>We come to you — perfect for those who prefer in-home comfort or have mobility challenges.</span><span lang-zh>按摩师上门为您服务——适合喜欢在家舒适环境或行动不便的客户。</span></p>
+          <div class="bk-feature-list">
+            <div class="bk-feature">
+              <span class="feature-icon">✓</span>
+              <div><b><span lang-en>Same professional service</span><span lang-zh>同样专业的服务</span></b>
+                <span><span lang-en>Trained blind therapists with years of experience</span><span lang-zh>具有多年经验的受训视障按摩师</span></span></div>
+            </div>
+            <div class="bk-feature">
+              <span class="feature-icon">✓</span>
+              <div><b><span lang-en>Flexible scheduling</span><span lang-zh>灵活的时间安排</span></b>
+                <span><span lang-en>Mornings, afternoons, or evenings — we work around your schedule</span><span lang-zh>上午、下午或晚上——我们根据您的时间灵活安排</span></span></div>
+            </div>
+            <div class="bk-feature">
+              <span class="feature-icon">✓</span>
+              <div><b><span lang-en>Travel fee applies</span><span lang-zh>收取交通费</span></b>
+                <span><span lang-en>Depends on location — confirm when you call</span><span lang-zh>根据地点而定——致电时确认</span></span></div>
+            </div>
+          </div>
+          <div class="bk-contact-cta">
+            <p style="margin-bottom:1.2rem"><span lang-en><b>Call or text to book:</b></span><span lang-zh"><b>致电或短信预约：</b></span></p>
+            <a href="tel:+60165238937" class="btn btn-primary" style="margin-bottom:.6rem">
+              <span lang-en>📞 Call now</span><span lang-zh>📞 立即致电</span>
+            </a>
+            <a href="sms:+60165238937" class="btn btn-primary">
+              <span lang-en>💬 Send SMS</span><span lang-zh>💬 短信预约</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab buttons -->
+    <div class="bk-tab-buttons reveal" style="margin-top:2.2rem;text-align:center">
+      <button id="studioBtn" class="btn-tab active" aria-selected="true" aria-controls="studioTab">
+        <span lang-en>Studio Session</span><span lang-zh>工作室疗程</span>
       </button>
-      <p id="bkStatus" role="status" aria-live="polite"></p>
-    </form>
+      <button id="housecallBtn" class="btn-tab" aria-selected="false" aria-controls="housecallTab">
+        <span lang-en>House Visit</span><span lang-zh>上门服务</span>
+      </button>
+    </div>
   </div>
 </section>
 

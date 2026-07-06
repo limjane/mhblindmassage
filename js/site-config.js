@@ -108,10 +108,41 @@
   function populateBookingServices(list) {
     var sel = document.getElementById('bkService');
     if (!sel || !Array.isArray(list) || !list.length) return;
-    sel.innerHTML = list.map(function (s) {
+    var studioServices = list.filter(function (s) { return s.bookingType !== 'housecall'; });
+    sel.innerHTML = studioServices.map(function (s) {
       var label = [s.nameEn, s.nameZh].filter(Boolean).join(' ');
       return '<option>' + esc(label) + '</option>';
     }).join('');
+  }
+
+  /* ---------- booking tab switching ---------- */
+  function initBookingTabs() {
+    setTimeout(function() {
+      var studioBtn = document.getElementById('studioBtn'),
+          housecallBtn = document.getElementById('housecallBtn'),
+          studioTab = document.getElementById('studioTab'),
+          housecallTab = document.getElementById('housecallTab');
+      if (!studioBtn || !housecallBtn || !studioTab || !housecallTab) return;
+
+      studioBtn.onclick = function (ev) {
+        ev.preventDefault();
+        studioTab.classList.add('active');
+        housecallTab.classList.remove('active');
+        studioBtn.classList.add('active');
+        housecallBtn.classList.remove('active');
+        studioBtn.setAttribute('aria-selected', 'true');
+        housecallBtn.setAttribute('aria-selected', 'false');
+      };
+      housecallBtn.onclick = function (ev) {
+        ev.preventDefault();
+        housecallTab.classList.add('active');
+        studioTab.classList.remove('active');
+        housecallBtn.classList.add('active');
+        studioBtn.classList.remove('active');
+        housecallBtn.setAttribute('aria-selected', 'true');
+        studioBtn.setAttribute('aria-selected', 'false');
+      };
+    }, 50);
   }
 
   function bindBooking() {
@@ -128,9 +159,12 @@
           ? '请填写姓名、日期与时间。' : 'Please fill in your name, date and time.';
         return;
       }
+      var phone = v('bkPhone') || '';
       var msg = 'Hello 巧手堂 M H Blind Massage!\nBooking request 预约:\n• ' + v('bkService') +
-        '\n• ' + v('bkDate') + ' ' + v('bkTime') + '\n• Name 姓名: ' + v('bkName') +
-        (v('bkNote') ? '\n• ' + v('bkNote') : '');
+        '\n• ' + v('bkDate') + ' ' + v('bkTime') + '\n• Name 姓名: ' + v('bkName');
+      if (phone) msg += '\n• Phone 电话: ' + phone;
+      if (v('bkNote')) msg += '\n• ' + v('bkNote');
+
       var b = (activeCfg && activeCfg.business) || {};
       if (filled(b.whatsapp)) {
         window.open('https://wa.me/' + b.whatsapp.replace(/[^\d]/g, '') + '?text=' + encodeURIComponent(msg),
@@ -158,7 +192,16 @@
     patchJsonLd(cfg);
   }
 
-  bindBooking();
+  // Initialize tabs after config is loaded and DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initBookingTabs();
+      bindBooking();
+    });
+  } else {
+    initBookingTabs();
+    bindBooking();
+  }
 
   // ?draft=1 previews unsaved edits from admin.html (stored in this browser only)
   var draft = null;

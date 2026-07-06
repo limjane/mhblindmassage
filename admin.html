@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Site Settings 网站设置 — M H Blind Massage Center</title>
+<style>
+:root{--ink:#2b2018;--soft:#5d4c3e;--cream:#fdf6ec;--cream2:#f7ecdc;--terra:#b3452c;--deep:#8c3016;
+  --gold:#d9a441;--jade:#3f6f5e;--line:#e6d8c2;--rad:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Inter","Noto Sans SC",-apple-system,"Segoe UI",sans-serif;background:var(--cream);
+  color:var(--ink);line-height:1.6;padding-bottom:6rem}
+.top{background:var(--ink);color:var(--cream);padding:1.1rem clamp(1rem,4vw,3rem);display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.top .seal{width:38px;height:38px;border-radius:50%;background:var(--terra);display:grid;place-items:center;font-family:serif;font-size:1.15rem}
+.top h1{font-size:1.05rem;font-weight:700}
+.top small{opacity:.7;display:block;font-weight:400}
+.top a{margin-left:auto;color:var(--gold);font-size:.88rem}
+main{max-width:860px;margin:2rem auto;padding:0 1rem}
+.note{background:#eef4ef;border:1px solid #cfe0d4;border-radius:var(--rad);padding:1rem 1.2rem;font-size:.9rem;color:#2f4f42;margin-bottom:1.6rem}
+fieldset{border:1px solid var(--line);background:#fff;border-radius:var(--rad);padding:1.4rem;margin-bottom:1.5rem}
+legend{font-weight:800;padding:0 .6rem;font-size:1.02rem}
+legend small{font-weight:500;color:var(--soft)}
+label{display:block;font-size:.83rem;font-weight:600;margin:.9rem 0 .25rem;color:var(--soft)}
+input,textarea,select{width:100%;padding:.6rem .8rem;border:1.5px solid var(--line);border-radius:9px;
+  font:inherit;font-size:.93rem;background:var(--cream)}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--terra)}
+:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+label:has(> input,> textarea,> select){cursor:pointer}
+textarea{min-height:60px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 1.2rem}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+.hint{font-size:.76rem;color:var(--soft);margin-top:.2rem}
+.svc{border:1px dashed var(--line);border-radius:var(--rad);padding:1rem 1.2rem 1.2rem;margin-top:1rem;background:var(--cream)}
+.svc-head{display:flex;align-items:center;gap:.6rem}
+.svc-head b{font-size:.9rem}
+.svc-head .tools{margin-left:auto;display:flex;gap:.4rem}
+.mini{border:1px solid var(--line);background:#fff;border-radius:8px;padding:.25rem .6rem;cursor:pointer;font-size:.8rem}
+.mini:hover{border-color:var(--terra);color:var(--terra)}
+.mini.del:hover{border-color:#c22;color:#c22}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border:none;border-radius:999px;padding:.8rem 1.6rem;
+  font-weight:700;font-size:.95rem;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-add{background:var(--jade);color:#fff;margin-top:1rem}
+.btn-dl{background:var(--ink);color:var(--cream)}
+.btn-pub{background:linear-gradient(135deg,var(--terra),var(--deep));color:#fff}
+.btn-prev{background:#fff;border:2px solid var(--ink)}
+.actions{position:fixed;bottom:0;left:0;right:0;background:rgba(253,246,236,.95);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);padding:.9rem 1rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;z-index:50}
+.toggle{display:flex;align-items:center;gap:.6rem;margin-top:.9rem;font-size:.9rem;font-weight:600}
+.toggle input{width:auto;transform:scale(1.3)}
+#status{text-align:center;font-size:.88rem;font-weight:600;min-height:1.4rem;margin-top:.8rem}
+#status.ok{color:var(--jade)}#status.err{color:#b3452c}
+details{margin-top:1rem}
+summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--terra)}
+.gh-note{font-size:.8rem;color:var(--soft);margin:.6rem 0}
+</style>
+</head>
+<body>
+<div class="top">
+  <span class="seal">手</span>
+  <h1>Site Settings <small>网站设置 · 巧手堂 M H Blind Massage Center</small></h1>
+  <a href="index.html" target="_blank">View website 查看网站 ↗</a>
+</div>
+
+<main>
+  <div class="note">
+    <b>How this works 使用方法：</b> Edit the fields below, then press <b>🚀 Publish</b> (goes live in about 1 minute) or
+    <b>💾 Download</b> and replace <code>data/site-config.json</code> in GitHub.
+    Nothing here can break the website — if a value is wrong, the site simply keeps its previous text.<br>
+    修改以下资料后，按 <b>🚀 发布</b>（约1分钟后生效）或 <b>💾 下载</b> 文件后到 GitHub 替换。此页面不会弄坏网站。
+  </div>
+
+  <form id="f">
+    <fieldset>
+      <legend>📞 Contact &amp; Business <small>联系与商家资料</small></legend>
+      <div class="row">
+        <div><label for="phone">Phone 电话</label><input id="phone" placeholder="+60 12-345 6789"></div>
+        <div><label for="whatsapp">WhatsApp (numbers only 只填数字)</label><input id="whatsapp" placeholder="60123456789">
+          <div class="hint">Adds a "Book on WhatsApp" button 填写后网站会出现 WhatsApp 预约按钮</div></div>
+      </div>
+      <label for="addressEn">Address (English) 地址（英文）</label><input id="addressEn">
+      <label for="addressZh">Address (中文)</label><input id="addressZh">
+      <label for="facebook">Facebook page link 专页链接</label><input id="facebook">
+      <div class="row">
+        <div><label for="lat">Map latitude 纬度</label><input id="lat" type="number" step="any"></div>
+        <div><label for="lng">Map longitude 经度</label><input id="lng" type="number" step="any"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>🕐 Opening Hours <small>营业时间</small></legend>
+      <div class="row">
+        <div><label for="hoursEn">English</label><input id="hoursEn" placeholder="Daily, 10:00 AM – 10:00 PM"></div>
+        <div><label for="hoursZh">中文</label><input id="hoursZh" placeholder="每日 10:00 – 22:00"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>📢 Announcement <small>公告（例：新年休假 / 促销）</small></legend>
+      <label class="toggle"><input type="checkbox" id="annOn"><span>Show announcement on website 在网站显示公告</span></label>
+      <div class="row">
+        <div><label for="annEn">English</label><input id="annEn" placeholder="CNY holiday: closed 10–12 Feb"></div>
+        <div><label for="annZh">中文</label><input id="annZh" placeholder="农历新年 2月10-12日休息"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>💆 Services &amp; Prices <small>服务项目与价格</small></legend>
+      <div id="svcList"></div>
+      <button type="button" class="btn btn-add" id="addSvc">＋ Add service 新增项目</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>🚀 Publishing setup <small>发布设置（一次性）</small></legend>
+      <details>
+        <summary>GitHub direct-publish settings (one-time) 直接发布设置</summary>
+        <p class="gh-note">Create a fine-grained token at github.com → Settings → Developer settings → Tokens, with
+          <b>Contents: Read &amp; write</b> for this repository only. It is saved only in this browser.<br>
+          在 GitHub 创建仅限此仓库、Contents 读写权限的 token。只保存在这台电脑的浏览器里。</p>
+        <div class="row">
+          <div><label for="ghOwner">GitHub username 用户名</label><input id="ghOwner" placeholder="mhblindmassage"></div>
+          <div><label for="ghRepo">Repository 仓库名</label><input id="ghRepo" placeholder="mhblindmassage.github.io"></div>
+        </div>
+        <div class="row">
+          <div><label for="ghBranch">Branch 分支</label><input id="ghBranch" value="main"></div>
+          <div><label for="ghToken">Access token 密钥</label><input id="ghToken" type="password" placeholder="github_pat_..."></div>
+        </div>
+      </details>
+    </fieldset>
+  </form>
+</main>
+
+<div class="actions">
+  <button class="btn btn-prev" id="btnPrev">👁 Preview 预览</button>
+  <button class="btn btn-dl" id="btnDl">💾 Download 下载</button>
+  <button class="btn btn-pub" id="btnPub">🚀 Publish 发布</button>
+  <div id="status" role="status" aria-live="polite" style="flex-basis:100%"></div>
+</div>
+
+<template id="svcTpl">
+  <div class="svc">
+    <div class="svc-head"><b class="svc-title">Service 项目</b>
+      <div class="tools">
+        <button type="button" class="mini up" title="Move up">↑</button>
+        <button type="button" class="mini down" title="Move down">↓</button>
+        <button type="button" class="mini del" title="Remove 删除">✕ 删除</button>
+      </div>
+    </div>
+    <div class="row">
+      <div><label>Name (English)<input class="s-nameEn"></label></div>
+      <div><label>名称（中文）<input class="s-nameZh"></label></div>
+    </div>
+    <div class="row">
+      <div><label>Description (English)<textarea class="s-descEn"></textarea></label></div>
+      <div><label>介绍（中文）<textarea class="s-descZh"></textarea></label></div>
+    </div>
+    <div class="row">
+      <div><label>Price 价格<input class="s-price" placeholder="RM 60"></label></div>
+      <div><label>Icon 图标
+        <select class="s-icon">
+          <option value="tuina">🙌 Massage 按摩</option>
+          <option value="foot">🦶 Foot 足部</option>
+          <option value="neck">💆 Neck 肩颈</option>
+          <option value="cup">⭕ Cupping 拔罐</option>
+        </select></label></div>
+    </div>
+    <div class="row">
+      <div><label>Duration (English)<input class="s-durationEn" placeholder="60 min"></label></div>
+      <div><label>时长（中文）<input class="s-durationZh" placeholder="60 分钟"></label></div>
+    </div>
+  </div>
+</template>
+
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const CFG_PATH='data/site-config.json';
+let cfg=null;
+
+/* ---------- load ---------- */
+fetch(CFG_PATH+'?v='+Date.now()).then(r=>{
+  if(!r.ok)throw new Error('HTTP '+r.status);return r.json();
+}).then(c=>{cfg=c;fill(c);}).catch(e=>{
+  setStatus('Could not load '+CFG_PATH+' — open this page through the website address, not as a file. 无法读取设置文件。','err');
+});
+
+function fill(c){
+  const b=c.business||{};
+  $('phone').value=b.phone||'';$('whatsapp').value=b.whatsapp||'';
+  $('addressEn').value=b.addressEn||'';$('addressZh').value=b.addressZh||'';
+  $('facebook').value=b.facebook||'';$('lat').value=b.lat||'';$('lng').value=b.lng||'';
+  $('hoursEn').value=(c.hours||{}).en||'';$('hoursZh').value=(c.hours||{}).zh||'';
+  const a=c.announcement||{};$('annOn').checked=!!a.enabled;$('annEn').value=a.en||'';$('annZh').value=a.zh||'';
+  $('svcList').innerHTML='';(c.services||[]).forEach(addSvcRow);
+  // publishing setup remembered on this computer
+  ['ghOwner','ghRepo','ghBranch','ghToken'].forEach(k=>{
+    const v=localStorage.getItem('mh-'+k);if(v)$(k).value=v;
+  });
+}
+
+/* ---------- services UI ---------- */
+function addSvcRow(s){
+  s=s||{icon:'tuina'};
+  const node=$('svcTpl').content.firstElementChild.cloneNode(true);
+  node.querySelector('.s-nameEn').value=s.nameEn||'';
+  node.querySelector('.s-nameZh').value=s.nameZh||'';
+  node.querySelector('.s-descEn').value=s.descEn||'';
+  node.querySelector('.s-descZh').value=s.descZh||'';
+  node.querySelector('.s-price').value=s.price||'';
+  node.querySelector('.s-icon').value=s.icon||'tuina';
+  node.querySelector('.s-durationEn').value=s.durationEn||'';
+  node.querySelector('.s-durationZh').value=s.durationZh||'';
+  node.querySelector('.del').onclick=()=>{if(confirm('Remove this service? 确定删除此项目？'))node.remove();};
+  node.querySelector('.up').onclick=()=>{const p=node.previousElementSibling;if(p)node.parentNode.insertBefore(node,p);};
+  node.querySelector('.down').onclick=()=>{const n=node.nextElementSibling;if(n)node.parentNode.insertBefore(n,node);};
+  $('svcList').appendChild(node);
+}
+$('addSvc').onclick=()=>addSvcRow();
+
+/* ---------- collect form -> config object ---------- */
+function collect(){
+  const out=JSON.parse(JSON.stringify(cfg||{}));
+  out.business=Object.assign({},out.business,{
+    phone:$('phone').value.trim(), whatsapp:$('whatsapp').value.replace(/[^\d]/g,''),
+    addressEn:$('addressEn').value.trim(), addressZh:$('addressZh').value.trim(),
+    facebook:$('facebook').value.trim(),
+    lat:parseFloat($('lat').value)||out.business.lat, lng:parseFloat($('lng').value)||out.business.lng
+  });
+  out.business.mapsUrl='https://maps.google.com/?q='+out.business.lat+','+out.business.lng;
+  out.hours={en:$('hoursEn').value.trim(),zh:$('hoursZh').value.trim()};
+  out.announcement={enabled:$('annOn').checked,en:$('annEn').value.trim(),zh:$('annZh').value.trim()};
+  out.services=[...document.querySelectorAll('#svcList .svc')].map(n=>({
+    icon:n.querySelector('.s-icon').value,
+    nameEn:n.querySelector('.s-nameEn').value.trim(), nameZh:n.querySelector('.s-nameZh').value.trim(),
+    descEn:n.querySelector('.s-descEn').value.trim(), descZh:n.querySelector('.s-descZh').value.trim(),
+    price:n.querySelector('.s-price').value.trim(),
+    durationEn:n.querySelector('.s-durationEn').value.trim(), durationZh:n.querySelector('.s-durationZh').value.trim()
+  })).filter(s=>s.nameEn||s.nameZh);
+  return out;
+}
+function validate(c){
+  if(!c.services.length)return 'Please keep at least one service. 请至少保留一个服务项目。';
+  if(c.business.facebook&&!/^https:\/\//.test(c.business.facebook))return 'Facebook link must start with https:// 链接需以 https:// 开头。';
+  return null;
+}
+function setStatus(msg,cls){const s=$('status');s.textContent=msg;s.className=cls||'';}
+
+/* ---------- actions ---------- */
+$('btnPrev').onclick=()=>{
+  const c=collect();const err=validate(c);if(err)return setStatus(err,'err');
+  localStorage.setItem('mh-cfg-draft',JSON.stringify(c));
+  window.open('index.html?draft=1','_blank');
+  setStatus('Preview opened in a new tab (unsaved). 预览已在新标签页打开（尚未保存）。','ok');
+};
+$('btnDl').onclick=()=>{
+  const c=collect();const err=validate(c);if(err)return setStatus(err,'err');
+  const blob=new Blob([JSON.stringify(c,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='site-config.json';a.click();
+  setStatus('Downloaded. Replace data/site-config.json in GitHub. 已下载，请到 GitHub 替换 data/site-config.json。','ok');
+};
+$('btnPub').onclick=async()=>{
+  const c=collect();const err=validate(c);if(err)return setStatus(err,'err');
+  const owner=$('ghOwner').value.trim(),repo=$('ghRepo').value.trim(),
+        branch=$('ghBranch').value.trim()||'main',token=$('ghToken').value.trim();
+  if(!owner||!repo||!token)return setStatus('Fill in the GitHub publishing settings first (see Publishing setup). 请先填写发布设置。','err');
+  ['ghOwner','ghRepo','ghBranch','ghToken'].forEach(k=>localStorage.setItem('mh-'+k,$(k).value.trim()));
+  setStatus('Publishing… 发布中…');
+  try{
+    const api='https://api.github.com/repos/'+owner+'/'+repo+'/contents/'+CFG_PATH;
+    const H={Authorization:'Bearer '+token,Accept:'application/vnd.github+json'};
+    const cur=await fetch(api+'?ref='+branch,{headers:H});
+    const sha=cur.ok?(await cur.json()).sha:undefined;
+    const body={message:'Update site info via admin screen',branch:branch,
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(c,null,2))))};
+    if(sha)body.sha=sha;
+    const res=await fetch(api,{method:'PUT',headers:H,body:JSON.stringify(body)});
+    if(!res.ok)throw new Error('GitHub replied '+res.status+' — check token permissions and repo name.');
+    cfg=c;
+    setStatus('✅ Published! Live in about 1 minute. 已发布！约1分钟后生效。','ok');
+  }catch(e){setStatus('Publish failed 发布失败: '+e.message,'err');}
+};
+</script>
+</body>
+</html>

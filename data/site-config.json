@@ -1,0 +1,66 @@
+{
+  "_readme": "Single source of truth for all editable business info. Edit via admin.html — or carefully by hand. The website reads this file; if it is missing or invalid, the site falls back to built-in defaults.",
+  "business": {
+    "nameEn": "M H Blind Massage Center",
+    "nameZh": "巧手堂盲人按摩推拿中心",
+    "phone": "+60 1X-XXX XXXX",
+    "whatsapp": "",
+    "addressEn": "[Full street address here], Simpang Ampat, Pulau Pinang, Malaysia",
+    "addressZh": "[完整街道地址]，Simpang Ampat, Pulau Pinang, Malaysia",
+    "facebook": "https://www.facebook.com/share/18bWiW5wuR/",
+    "mapsUrl": "https://maps.google.com/?q=5.284148,100.483452",
+    "lat": 5.284148,
+    "lng": 100.483452
+  },
+  "hours": {
+    "en": "Daily, 10:00 AM – 10:00 PM (please confirm)",
+    "zh": "每日 10:00 – 22:00（请以专页公布为准）"
+  },
+  "announcement": {
+    "enabled": false,
+    "en": "",
+    "zh": ""
+  },
+  "services": [
+    {
+      "icon": "tuina",
+      "nameEn": "Full-Body Tuina 推拿",
+      "nameZh": "全身推拿",
+      "descEn": "Deep, flowing traditional Chinese massage to release tension, improve circulation and restore balance.",
+      "descZh": "深层而流畅的传统推拿，疏通经络、促进血液循环、恢复身体平衡。",
+      "price": "RM XX",
+      "durationEn": "60 min",
+      "durationZh": "60 分钟"
+    },
+    {
+      "icon": "foot",
+      "nameEn": "Foot Reflexology",
+      "nameZh": "脚底按摩",
+      "descEn": "Precise pressure-point therapy on the feet — the classic art where blind therapists truly excel.",
+      "descZh": "精准的足部反射区按压疗法——视障按摩师最引以为傲的经典手艺。",
+      "price": "RM XX",
+      "durationEn": "45 min",
+      "durationZh": "45 分钟"
+    },
+    {
+      "icon": "neck",
+      "nameEn": "Shoulder & Neck Relief",
+      "nameZh": "肩颈舒缓",
+      "descEn": "Targeted relief for desk workers and drivers — melt away stiffness, headaches and knots.",
+      "descZh": "专为上班族与驾驶人士而设，化解僵硬、头痛与肌肉结节。",
+      "price": "RM XX",
+      "durationEn": "30 min",
+      "durationZh": "30 分钟"
+    },
+    {
+      "icon": "cup",
+      "nameEn": "Cupping & Gua Sha",
+      "nameZh": "拔罐 · 刮痧",
+      "descEn": "Time-honoured detox therapies to draw out heat, ease soreness and refresh the body.",
+      "descZh": "历史悠久的排毒疗法，祛湿散热、缓解酸痛、焕发活力。",
+      "price": "RM XX",
+      "durationEn": "session",
+      "durationZh": "次"
+    }
+  ]
+}

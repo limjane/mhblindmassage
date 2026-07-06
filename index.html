@@ -19,6 +19,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23b3452c'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23fdf6ec' font-family='serif'%3E手%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#b3452c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <!-- Structured data: this is what Google & AI search engines read -->
 <script type="application/ld+json">
 {
@@ -207,6 +209,28 @@ footer .fb-big:hover{transform:translateY(-3px)}
 footer p{font-size:.85rem}
 footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;margin-bottom:1.4rem}
 
+/* accessibility */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:200;background:var(--ink);color:var(--cream);
+  padding:.8rem 1.4rem;border-radius:0 0 12px 0;font-weight:700}
+.skip-link:focus{left:0}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:4px}
+
+/* booking form */
+.bk-form{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;margin-top:2.4rem;max-width:760px}
+.bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem 1.4rem}
+@media(max-width:640px){.bk-grid{grid-template-columns:1fr}}
+.bk-form label{display:block;font-size:.85rem;font-weight:700;color:var(--ink-soft);margin:.9rem 0 .3rem}
+.bk-form input,.bk-form select{width:100%;padding:.7rem .9rem;border:1.5px solid #e6d8c2;border-radius:10px;
+  font:inherit;font-size:.95rem;background:var(--cream)}
+.bk-form input:focus,.bk-form select:focus{border-color:var(--terra)}
+.bk-form .btn{margin-top:1.4rem;border:none;cursor:pointer}
+#bkStatus{margin-top:.9rem;font-size:.9rem;font-weight:600;color:var(--jade);min-height:1.4rem}
+
+/* announcement pill (shown when enabled in site-config) */
+.announce{display:inline-block;background:#fff;border:1.5px solid var(--gold);color:var(--terra-deep);
+  border-radius:999px;padding:.5rem 1.3rem;font-weight:600;font-size:.9rem;margin-bottom:1.3rem;
+  box-shadow:0 6px 20px rgba(90,50,20,.12)}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
   .reveal{opacity:1;transform:none}
@@ -214,8 +238,9 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
 </style>
 </head>
 <body>
+<a class="skip-link" href="#story"><span lang-en>Skip to main content</span><span lang-zh>跳到主要内容</span></a>
 
-<nav id="nav">
+<nav id="nav" aria-label="Main navigation">
   <a class="brand" href="#top">
     <span class="seal">手</span>
     <span class="bn">巧手堂 <small>M H Blind Massage Center</small></span>
@@ -223,6 +248,7 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
   <div class="navlinks">
     <a class="nl" href="#story"><span lang-en>Our Story</span><span lang-zh>我们的故事</span></a>
     <a class="nl" href="#services"><span lang-en>Services</span><span lang-zh>服务项目</span></a>
+    <a class="nl" href="#book"><span lang-en>Book</span><span lang-zh>预约</span></a>
     <a class="nl" href="#visit"><span lang-en>Visit Us</span><span lang-zh>到访我们</span></a>
     <button class="lang-btn" id="langBtn" aria-label="Switch language">中文</button>
   </div>
@@ -292,6 +318,7 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
   </div>
 </div>
 
+<main>
 <section id="story">
   <div class="wrap story-grid">
     <div class="reveal">
@@ -373,7 +400,7 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
       <h2><span lang-en>Traditional therapies, masterful hands</span><span lang-zh>传统疗法 · 匠心手艺</span></h2>
       <p class="lead"><span lang-en>Prices shown are typical — please confirm current rates when booking.</span><span lang-zh>价格仅供参考，预约时请与我们确认最新收费。</span></p>
     </div>
-    <div class="cards">
+    <div class="cards" id="serviceCards">
       <div class="card reveal">
         <div class="icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#b3452c" stroke-width="1.8" stroke-linecap="round"><path d="M4 15c3-6 13-6 16 0M7 10c2-4 8-4 10 0"/><circle cx="12" cy="18" r="2"/></svg></div>
         <h3><span lang-en>Full-Body Tuina 推拿</span><span lang-zh>全身推拿</span></h3>
@@ -444,6 +471,39 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
   </div>
 </section>
 
+<section id="book" style="background:linear-gradient(180deg,var(--cream-2) 0%,var(--cream) 100%)">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="sec-kicker"><span lang-en>Book a Session</span><span lang-zh>预约疗程</span></span>
+      <h2><span lang-en>Reserve your healing time</span><span lang-zh>预留您的疗愈时光</span></h2>
+      <p class="lead"><span lang-en>Fill in the form and it opens WhatsApp with your booking message ready to send — the easiest way for our therapists to receive it.</span><span lang-zh>填写表格后将自动打开 WhatsApp，预约信息已备好，按发送即可——这是按摩师最方便接收的方式。</span></p>
+    </div>
+    <form id="bkForm" class="bk-form reveal d1">
+      <div class="bk-grid">
+        <div><label for="bkName"><span lang-en>Your name</span><span lang-zh>姓名</span></label>
+          <input id="bkName" name="name" autocomplete="name" required></div>
+        <div><label for="bkService"><span lang-en>Service</span><span lang-zh>服务项目</span></label>
+          <select id="bkService" name="service">
+            <option>Full-Body Tuina 全身推拿</option>
+            <option>Foot Reflexology 脚底按摩</option>
+            <option>Shoulder &amp; Neck 肩颈舒缓</option>
+            <option>Cupping &amp; Gua Sha 拔罐刮痧</option>
+          </select></div>
+        <div><label for="bkDate"><span lang-en>Date</span><span lang-zh>日期</span></label>
+          <input id="bkDate" name="date" type="date" required></div>
+        <div><label for="bkTime"><span lang-en>Preferred time</span><span lang-zh>时间</span></label>
+          <input id="bkTime" name="time" type="time" required></div>
+      </div>
+      <label for="bkNote"><span lang-en>Note (optional)</span><span lang-zh>备注（可选）</span></label>
+      <input id="bkNote" name="note">
+      <button class="btn btn-primary" type="submit">
+        <span lang-en>📲 Send booking via WhatsApp</span><span lang-zh>📲 通过 WhatsApp 发送预约</span>
+      </button>
+      <p id="bkStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <section id="visit">
   <div class="wrap">
     <div class="reveal">
@@ -452,27 +512,27 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
     </div>
     <div class="loc-grid" style="margin-top:2.2rem">
       <div class="map-box reveal">
-        <iframe title="Map to M H Blind Massage Center" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+        <iframe id="cfgMap" title="Map to M H Blind Massage Center" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
           src="https://maps.google.com/maps?q=5.284148,100.483452&z=16&output=embed"></iframe>
       </div>
       <div class="reveal d1">
         <div class="info-list">
           <div class="info-item"><div class="ii">📍</div><div>
             <b><span lang-en>Address</span><span lang-zh>地址</span></b>
-            <span class="placeholder"><span lang-en>[Full street address here]</span><span lang-zh>[完整街道地址]</span></span><br>
+            <span class="placeholder"><span lang-en id="cfgAddrEn">[Full street address here]</span><span lang-zh id="cfgAddrZh">[完整街道地址]</span></span><br>
             <span>Simpang Ampat, Pulau Pinang, Malaysia</span></div></div>
           <div class="info-item"><div class="ii">📞</div><div>
             <b><span lang-en>Phone / WhatsApp</span><span lang-zh>电话 / WhatsApp</span></b>
-            <span class="placeholder">+60 1X-XXX XXXX</span></div></div>
+            <span class="placeholder" id="cfgPhone">+60 1X-XXX XXXX</span></div></div>
           <div class="info-item"><div class="ii">🕐</div><div>
             <b><span lang-en>Opening Hours</span><span lang-zh>营业时间</span></b>
-            <span class="placeholder"><span lang-en>Daily, 10:00 AM – 10:00 PM (please confirm)</span><span lang-zh>每日 10:00 – 22:00（请以专页公布为准）</span></span></div></div>
+            <span class="placeholder"><span lang-en id="cfgHoursEn">Daily, 10:00 AM – 10:00 PM (please confirm)</span><span lang-zh id="cfgHoursZh">每日 10:00 – 22:00（请以专页公布为准）</span></span></div></div>
           <div class="info-item"><div class="ii">💬</div><div>
             <b>Facebook</b>
             <span><a href="https://www.facebook.com/share/18bWiW5wuR/" target="_blank" rel="noopener">巧手堂保健盲人按摩推拿中心 →</a></span></div></div>
         </div>
         <div class="cta-row" style="justify-content:flex-start;margin-top:2rem">
-          <a class="btn btn-primary" href="https://maps.google.com/?q=5.284148,100.483452" target="_blank" rel="noopener">
+          <a class="btn btn-primary" id="cfgDirections" href="https://maps.google.com/?q=5.284148,100.483452" target="_blank" rel="noopener">
             <span lang-en>🧭 Get Directions</span><span lang-zh>🧭 导航前往</span>
           </a>
         </div>
@@ -480,6 +540,7 @@ footer .zen{font-family:var(--serif);color:var(--gold-soft);font-size:1.1rem;mar
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <p class="zen"><span lang-en>“The best hands see with the heart.”</span><span lang-zh>「最巧的手，用心看世界。」</span></p>
@@ -523,5 +584,7 @@ const rt=document.getElementById('ribbonTrack');rt.innerHTML+=rt.innerHTML;
 
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
+<script src="js/site-config.js" defer></script>
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});</script>
 </body>
 </html>

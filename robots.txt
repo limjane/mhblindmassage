@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://mhblindmassage.github.io/sitemap.xml
+Sitemap: https://limjane.github.io/mhblindmassage/sitemap.xml

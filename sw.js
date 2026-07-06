@@ -1,6 +1,6 @@
 /* Service worker: offline shell for the PWA.
    Config and admin are network-first so fresh business info always wins. */
-var CACHE = 'mh-shell-v1';
+var CACHE = 'mh-shell-v2';
 var SHELL = ['./', 'index.html', 'js/site-config.js', 'manifest.webmanifest',
              'icons/icon-192.png', 'icons/icon-512.png'];
 

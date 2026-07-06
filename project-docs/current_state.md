@@ -1,118 +1,176 @@
 # M H Blind Massage Center — current state
 
-**Last updated:** 2026-07-06
+**Last updated:** 2026-07-06 · **Status: LIVE** 🚀
 
 ## What this is
-Professional, fully-accessible, bilingual website + PWA + owner settings dashboard for **M H Blind Massage Center** 巧手堂盲人按摩推拿中心 (blind-community massage shop, Simpang Ampat, Penang). Live booking features for both studio sessions and house visits. Self-maintainable by the blind owner via admin panel.
+Professional, bilingual, fully-accessible website for **M H Blind Massage Center** 巧手堂盲人按摩推拿中心 (blind-community massage shop, Simpang Ampat, Penang). Features: animated hero, meridian/nerve explorer, reflexology map, knowledge hub, professional booking system (studio + house visits), PWA app, owner admin dashboard. Now live at **https://limjane.github.io/mhblindmassage/**.
 
-## Status: BUILT + VERIFIED, ready to publish
+## Status: DEPLOYED & LIVE ✅
 
-Local preview: `http://localhost:8140` (Python HTTP server on port 8140).
-Repo: Git-initialized, 3 commits, ready to push to GitHub Pages.
+### Architecture
+- **Single HTML file** (index.html) — no build step, no framework, zero JavaScript dependencies
+- **Config system** (data/site-config.json + js/site-config.js) — all business info (phone, address, hours, services, prices) lives in one JSON file; site reads it at load-time and renders
+- **Owner dashboard** (admin.html) — bilingual settings screen to edit all fields, preview changes, download updated config, or publish directly to GitHub via API token
+- **PWA** (manifest.webmanifest, sw.js) — installable on iOS/Android home screens; offline-capable shell cache
+- **Modular fail-safe:** if config is missing or broken, site falls back to built-in defaults — never breaks
 
-### What's finished
+### What's live
 
-**Site Content** (index.html, fully bilingual EN/中文):
-- Animated hero with SVG artwork (hands, lotus, energy waves, drifting orbs)
-- Story section with stat counters + warm illustrated room scene
-- **Services grid** showing 4 studio services + House Visit option with descriptions
-- "Why blind massage" section (4 reasons: heightened touch, training, focus, social impact)
-- **Floating lantern support band** encouraging bookings/sharing
-- Why section with counters (100% blind-operated, 7-day week, ∞ care)
+**Premium Design:**
+- Cinematic night-gold hero with aurora gradients, rising light motes, shimmer typography
+- Scroll progress bar (top)
+- Fraunces serif font + Noto Serif SC (Google Fonts, bilingual)
 
-**Professional Booking System** (NEW — #book section):
-- **Two booking pathways:**
-  - **Studio Session:** Bilingual form (name, service, date, time, phone optional, notes) → generates WhatsApp message → deep-links to WhatsApp app with pre-filled booking request
-  - **House Visit:** Info panel (3 key features: same pro service, flexible hours, travel fee) + prominent **Call** and **SMS** buttons linking directly to +60165238937
-- Form validation: date picker minimum = today; required fields enforced; phone optional
-- Status messages: "Opening WhatsApp — press send to complete..." or fallback to Facebook if WhatsApp not configured
-- Tab UI to switch between Studio ↔ House Visit (currently studio-focused on load, house visit tab accessible via button click)
+**The Science Section (#science):**
+- **Interactive Meridian Body Explorer** — animated SVG human figure with glowing meridian/nerve pathways
+- Travelling energy pulses animate along the paths (SMIL animateMotion)
+- 6 clickable acupressure points (Baihui, Jianjing, Hegu, Guanyuan, Zusanli, Yongquan) with bilingual explanations
+- 3D tilt effect on card (CSS 3D transforms; pointer-fine devices only)
+- Respects prefers-reduced-motion
+
+**Interactive Foot Reflexology Map (#foot):**
+- 5 clickable zones (head, chest/heart, digestion, lower back, pelvis/sleep)
+- Each zone shows what body system it maps to
+- Bilingual descriptions
+
+**Knowledge Hub (#wisdom):**
+- 4 expandable cards: what is tuina, how reflexology works, first visit guide, aftercare tips
+- Educates customers & feeds Google/AI search
+
+**Professional Booking (#book):**
+- Two pathways: Studio (WhatsApp form) + House Visit (Call/SMS buttons)
+- Studio booking form: name, service, date, time, phone (optional), notes → pre-filled WhatsApp message
+- House visit info panel with 3 key features + direct call/SMS links to +60 16-523 8937
+- Tab UI to switch between booking methods
+- Tab switching working (verified)
 
 **SEO + Discoverability:**
-- LocalBusiness JSON-LD (auto-synced from config at runtime): phone, address, GPS coords, Facebook link, hours
+- LocalBusiness JSON-LD (auto-synced from config): phone, address, GPS coords, Facebook, hours
 - OG tags (title, desc, image, URL) for social sharing
-- `sitemap.xml` + `robots.txt` (disallows admin.html, robots-friendly for public pages)
-- Meta keywords in 5 languages: English, 中文, Malay
-- Manifest + service worker for PWA (installable on home screens)
+- sitemap.xml + robots.txt (disallows admin.html)
+- og-image.png generated (1200×630)
+- Meta keywords in EN + 中文
+- Canonical URL set to live address
 
-**Owner Config + Admin Dashboard** (admin.html):
-- Bilingual settings screen (noindex-protected, screen-reader accessible)
-- Edit all fields: contact (phone, WhatsApp, address), hours, announcement, services, prices
-- Three publish options: 👁 Preview (browser localStorage draft), 💾 Download JSON, 🚀 GitHub API direct-publish (one-time token setup)
-- Fail-safe: if config missing/invalid, site falls back to built-in defaults — never breaks
-- All form labels properly associated (label-for, aria-live status messages)
+**Real Business Data:**
+- Address: 98, Jln Tasek SS1, Bandar Tasek Mutiara, 14120, Simpang Ampat, Penang
+- Phone/WhatsApp: +60 16-523 8937 ✅
+- Facebook: https://www.facebook.com/share/18bWiW5wuR/ ✅
+- Google Maps coords: 5.284148, 100.483452 ✅
+- House visit service: ✅ listed in services
 
 **Accessibility (Blind-owner-first design):**
 - Skip-to-main link (visible on :focus)
-- Semantic HTML (main landmark, proper section hierarchy)
-- Form labels: all inputs/selects have label associations
-- Aria-live regions: status messages announced to screen readers
-- Focus-visible: 3px terracotta outline on all interactive elements
-- Respects prefers-reduced-motion: animations disabled if user has set motion preference
+- Semantic HTML (main landmark, proper headings)
+- Form labels: label-for associations
+- Aria-live status regions
+- Focus-visible outlines (3px gold)
+- Respects prefers-reduced-motion
+- Screen-reader tested (meridian points, foot zones, accordion cards all keyboard/announce-friendly)
 
-**Real Business Data:**
-- Address: 98, Jln Tasek SS1, Bandar Tasek Mutiara, 14120, Simpang Ampat, Penang, Malaysia
-- Phone: +60 16-523 8937
-- WhatsApp: 60165238937 (WhatsApp button now live in hero + booking form)
-- Facebook: https://www.facebook.com/share/18bWiW5wuR/ (linked throughout)
-- GPS: 5.284148, 100.483452 (embedded Google Maps)
+**Bilingual (EN / 中文):**
+- Toggle button (top-right, persisted to localStorage)
+- All content duplicated EN/ZH (55+ content blocks)
+- Works seamlessly across all sections
+- Language choice remembered on next visit
 
-**PWA Features:**
-- `manifest.webmanifest`: installable on Android/iPhone home screens
-- App icons (192×512 px): 手 seal on terracotta background
-- Service worker (`sw.js`): shell caching (assets cached, config/admin always fresh from network)
-- Offline support: site shell works offline; config updates require network
+**Hosting:**
+- GitHub Pages (free, live now)
+- Repo: limjane/mhblindmassage
+- Branch: main
+- URL: https://limjane.github.io/mhblindmassage/
+- Deploy: automatic on every git push (1–2 min)
+- HTTPS: automatic (GitHub-provided cert)
+- CDN: GitHub's global CDN (~zero latency)
+
+**Developer Setup:**
+- Local: Python `http.server` on port 8140
+- Git: remote configured (push → GitHub Pages auto-deploys)
+- Commits: 4 total (initial + config/booking/accessibility + redesign premium + decisions log)
+- All work tracked in git history + append-only decisions.md
 
 ### Placeholders remaining
-1. Prices (RM XX for each service) — add via admin.html
-2. Opening hours — currently set to default in config
-3. `og-image.png` (referenced in meta, optional — auto-generated image or user can provide)
+1. **Prices** — "RM XX" in service cards. Fill via admin.html when you have them.
+2. **Hours** — currently default ("10:00 AM – 10:00 PM please confirm"). Update via admin.html.
+3. **og-image.png** — generated automatically; optional to customize further.
 
 ### File structure
 ```
 mh-blind-massage/
-├── index.html                  # Main site (bilingual, animated, booking form)
-├── admin.html                  # Owner settings screen (noindex)
-├── data/
-│   └── site-config.json       # Single source of truth (phone, address, services, prices)
-├── js/
-│   └── site-config.js         # Renders config → page, handles booking, tab switching
-├── sw.js                       # Service worker (PWA offline shell)
-├── manifest.webmanifest       # PWA metadata
-├── robots.txt                  # SEO (disallow admin, allow everything else)
-├── sitemap.xml                # SEO (lists all public pages)
+├── index.html (920 lines; all site content + JS animations)
+├── admin.html (owner bilingual settings screen; noindex)
+├── data/site-config.json (phone, address, hours, services, prices)
+├── js/site-config.js (renders config → page, booking, tab switching)
+├── sw.js (PWA service worker; shell cache + network-first config)
+├── manifest.webmanifest (app metadata for home-screen install)
+├── robots.txt (SEO; disallow admin)
+├── sitemap.xml (SEO; points to live URL)
+├── og-image.png (1200×630 social share image)
 ├── icons/
-│   ├── icon-192.png           # PWA icon
-│   └── icon-512.png           # PWA icon
+│   ├── icon-192.png (PWA icon)
+│   └── icon-512.png (PWA icon)
 ├── project-docs/
-│   ├── current_state.md       # This file
-│   └── decisions.md           # Append-only decision log
-└── .git/                      # Git repo (3 commits, ready to push)
+│   ├── current_state.md (this file)
+│   └── decisions.md (append-only decision log)
+└── .git/ (4 commits, main branch)
 ```
 
-### Next steps (for user)
+### How to edit
 
-1. **Enter prices:** Open admin.html locally (or share with shop owner), fill in service prices (RM XX → actual RM amounts), click 💾 Download, replace `data/site-config.json` in repo, git commit+push.
+**Business info (phone, address, hours, services, prices):**
+1. Open http://localhost:8140/admin.html (or live: https://limjane.github.io/mhblindmassage/admin.html)
+2. Edit fields
+3. Click 💾 Download → commit to GitHub, OR 🚀 Publish (direct GitHub API; one-time token setup)
 
-2. **Publish to GitHub Pages:**
-   - Create GitHub account: github.com → sign up (if not already done)
-   - Create new repo: `mhblindmassage.github.io` (exact name for free Pages)
-   - Clone or git push this folder to that repo
-   - GitHub auto-deploys Pages at `https://mhblindmassage.github.io`
-   - Site goes live in ~1 minute; every git push re-deploys
+**Design/content:**
+- Edit index.html directly
+- `git add index.html && git commit -m "..."` 
+- `git push origin main` → live in 1–2 min
 
-3. **Google visibility (biggest customer driver):**
-   - **Google Search Console:** Submit sitemap at search.google.com (free)
-   - **Google Business Profile:** Owner claims at business.google.com (needs phone verification) — this is what shows customers the location, hours, reviews
+**Config schema:**
+- See data/site-config.json (all keys defined)
+- Add new services in the `services[]` array (mirror existing format)
 
-4. **WhatsApp booking verification:** Test booking form end-to-end once live; customer submits → WhatsApp app opens with pre-filled message → staff reply directly
+### Next steps (for shop owner)
 
-5. **Optional future:** Evaluate third-party booking service (Fresha, SimplyBook) if WhatsApp volume grows; PWA structure allows easy integration.
+1. **Fill in prices** — open admin.html, enter actual RM amounts for each service, click 🚀 Publish
+2. **Google Search Console** (free, 5 min):
+   - Go to search.google.com/search-console
+   - Add property: https://limjane.github.io/mhblindmassage/
+   - Verify (HTML file method easiest)
+   - Submit sitemap: https://limjane.github.io/mhblindmassage/sitemap.xml
+3. **Google Business Profile** (biggest customer driver):
+   - Go to business.google.com
+   - Search for "M H Blind Massage Center"
+   - Claim the listing (owner's phone verification required)
+   - Add website link, hours, photos
+4. **Test bookings** — visit the live site, scroll to "Book a Session," submit a test booking → should open WhatsApp with pre-filled message
+5. **Share** — send the link to friends, customers; they can now:
+   - Visit the site on desktop or phone
+   - Book a session on their phone without an app
+   - Optionally add to home screen (iOS/Android "Add to Home Screen" → opens like a native app)
 
-### Architecture highlights (why this won't break)
+### Known limitations (intentional)
+- No server-side booking confirmation (WhatsApp message is the confirmation path)
+- No real-time calendar availability (customers must text/call to confirm date)
+- No payment processing (cash/bank transfer assumed)
+- No email subscription/newsletter
 
-- **Modular separation:** Content (site-config.json) ← independent → HTML (index.html) ← independent → JavaScript (site-config.js)
-- **Fail-safe binding:** If config missing/broken, HTML defaults display; if JS fails, form still posts via WhatsApp fallback
-- **Admin isolation:** admin.html is never shown to customers; changes are opt-in via Download or GitHub publish
-- **No backend required:** Everything is static files + service worker; no server-side code to crash
-- **Git as source control:** Every change is tracked; easy to rollback if something breaks
+All of these can be added in future iterations by connecting a backend (Vercel serverless functions, Firebase, etc.) — the current static + GitHub Pages setup is intentionally simple so it's zero-maintenance.
+
+### Rollback plan
+If anything breaks:
+1. `git log --oneline` to see commit history
+2. `git revert <commit-hash>` to undo a change
+3. `git push origin main` → live in 1–2 min
+Everything is safe.
+
+### Token safety note
+GitHub API token is saved in this computer's git config for auto-push. Since it was shared in chat, consider:
+- Deleting it at github.com → Settings → Developer settings → Tokens (classic)
+- Creating a new fine-grained token (scoped to this repo only)
+- Next session: run `git remote set-url origin https://<new-token>@github.com/limjane/mhblindmassage.git`
+
+---
+
+**Ready for customer launch.** 🎉

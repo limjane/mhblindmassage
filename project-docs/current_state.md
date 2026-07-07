@@ -1,6 +1,6 @@
 # M H Blind Massage Center — current state
 
-**Last updated:** 2026-07-06 · **Status: LIVE** 🚀
+**Last updated:** 2026-07-07 · **Status: LIVE** 🚀
 
 ## What this is
 Professional, bilingual, fully-accessible website for **M H Blind Massage Center** 巧手堂盲人按摩推拿中心 (blind-community massage shop, Simpang Ampat, Penang). Features: animated hero, meridian/nerve explorer, reflexology map, knowledge hub, professional booking system (studio + house visits), PWA app, owner admin dashboard. Now live at **https://limjane.github.io/mhblindmassage/**.
@@ -16,8 +16,9 @@ Professional, bilingual, fully-accessible website for **M H Blind Massage Center
 
 ### What's live
 
-**Premium Design:**
-- Cinematic night-gold hero with aurora gradients, rising light motes, shimmer typography
+**Premium Design (lightened 2026-07-07):**
+- Cinematic **light-gold** hero (user found night theme too dark) — warm radial light, pastel aurora gradients, glowing gold motes, shimmer typography kept. Nav + ribbon lightened to match; The Science section stays dark (user sign-off) as a contrast band; footer stays dark.
+- New hero artwork: cinematic SVG massage scene — therapist with rhythmically pressing hands on a client's back, warm pressure glows, "tension leaving" relief waves. (User wanted real 4K photos; can't generate photographs — premium SVG route chosen with sign-off; stock/AI photos can be layered in later without rebuild.)
 - Scroll progress bar (top)
 - Fraunces serif font + Noto Serif SC (Google Fonts, bilingual)
 
@@ -28,10 +29,10 @@ Professional, bilingual, fully-accessible website for **M H Blind Massage Center
 - 3D tilt effect on card (CSS 3D transforms; pointer-fine devices only)
 - Respects prefers-reduced-motion
 
-**Interactive Foot Reflexology Map (#foot):**
-- 5 clickable zones (head, chest/heart, digestion, lower back, pelvis/sleep)
-- Each zone shows what body system it maps to
-- Bilingual descriptions
+**Interactive Foot Reflexology Map (#foot) — rebuilt 2026-07-07 as a linked foot↔body view:**
+- One wide SVG stage: anatomical sole (skin gradients, arch/heel shading, creases, soft-blur zone overlays) on the left, full-body silhouette with drawn organs (brain, heart/lungs, stomach/liver, intestines coil, pelvis) on the right
+- Tap a zone (or pill, or organ) → an **animated glowing pathway** (dashed flow + travelling pulse dot) connects the foot zone to its body region; the organ lights up and pulses — "so people don't have to imagine"
+- 5 zones (head, chest/heart, digestion, lower back, pelvis/sleep), bilingual, keyboard-accessible, aria-live info panel below
 
 **Knowledge Hub (#wisdom):**
 - 4 expandable cards: what is tuina, how reflexology works, first visit guide, aftercare tips

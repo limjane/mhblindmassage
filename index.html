@@ -18,7 +18,7 @@
 <meta property="og:locale:alternate" content="zh_MY">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23b3452c'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23fdf6ec' font-family='serif'%3E手%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#14100b">
+<meta name="theme-color" content="#faf6ef">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,43 +97,46 @@ body.zh span[lang-zh],body.zh a[lang-zh],body.zh em[lang-zh],body.zh b[lang-zh]{
 
 /* ---------- nav ---------- */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;gap:1rem;
-  padding:.85rem clamp(1rem,4vw,3rem);transition:background .4s,box-shadow .4s;color:var(--paper)}
-nav.scrolled{background:rgba(20,16,11,.88);backdrop-filter:blur(16px);box-shadow:0 4px 30px rgba(0,0,0,.35)}
+  padding:.85rem clamp(1rem,4vw,3rem);transition:background .4s,box-shadow .4s;color:var(--ink)}
+nav.scrolled{background:rgba(250,246,239,.92);backdrop-filter:blur(16px);box-shadow:0 4px 30px rgba(60,38,16,.14)}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:700}
 .brand .seal{width:44px;height:44px;border-radius:50%;background:var(--terra);color:var(--paper);
   display:grid;place-items:center;font-family:var(--serif);font-size:1.35rem;box-shadow:0 0 22px rgba(201,162,75,.5)}
 .brand .bn{line-height:1.2;font-size:.95rem}
-.brand .bn small{display:block;font-weight:500;color:var(--gold-bright);font-size:.72rem;letter-spacing:.06em}
+.brand .bn small{display:block;font-weight:500;color:var(--gold-dim);font-size:.72rem;letter-spacing:.06em}
 .navlinks{margin-left:auto;display:flex;gap:1.5rem;align-items:center;font-size:.9rem;font-weight:600}
 .navlinks a{text-decoration:none;opacity:.85;transition:opacity .2s,color .2s}
-.navlinks a:hover{opacity:1;color:var(--gold-bright)}
+.navlinks a:hover{opacity:1;color:var(--terra)}
 @media(max-width:900px){.navlinks a.nl{display:none}}
-.lang-btn{border:1.5px solid var(--gold);background:transparent;color:var(--gold-bright);font-weight:700;
+.lang-btn{border:1.5px solid var(--gold);background:transparent;color:var(--gold-dim);font-weight:700;
   border-radius:999px;padding:.4rem 1rem;cursor:pointer;font-size:.85rem;transition:all .25s}
 .lang-btn:hover{background:var(--gold);color:var(--night)}
 
-/* ---------- hero (cinematic night-gold) ---------- */
+/* ---------- hero (cinematic light-gold) ---------- */
 header{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
-  text-align:center;padding:7rem 1.2rem 5rem;overflow:hidden;background:var(--night);color:var(--paper)}
+  text-align:center;padding:7rem 1.2rem 5rem;overflow:hidden;color:var(--ink);
+  background:radial-gradient(130% 90% at 50% 0%,#fffdf6 0%,var(--paper) 52%,#f0e5cf 100%)}
 .aurora{position:absolute;inset:0;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:aurora 22s ease-in-out infinite alternate}
-.aurora i:nth-child(1){width:60vw;height:60vw;background:radial-gradient(circle,#5a3b17,transparent 70%);top:-20vw;left:-15vw}
-.aurora i:nth-child(2){width:50vw;height:50vw;background:radial-gradient(circle,#7a2f18,transparent 70%);bottom:-18vw;right:-12vw;animation-delay:-8s}
-.aurora i:nth-child(3){width:34vw;height:34vw;background:radial-gradient(circle,#3e6b5a,transparent 70%);top:38%;right:16%;opacity:.3;animation-delay:-14s}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;animation:aurora 22s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:60vw;height:60vw;background:radial-gradient(circle,#f4dfa8,transparent 70%);top:-20vw;left:-15vw}
+.aurora i:nth-child(2){width:50vw;height:50vw;background:radial-gradient(circle,#f4c8a4,transparent 70%);bottom:-18vw;right:-12vw;animation-delay:-8s}
+.aurora i:nth-child(3){width:34vw;height:34vw;background:radial-gradient(circle,#bcd9c9,transparent 70%);top:38%;right:16%;opacity:.4;animation-delay:-14s}
 @keyframes aurora{from{transform:translate(0,0) scale(1)}to{transform:translate(5vw,4vh) scale(1.18)}}
-.mote{position:absolute;bottom:-3vh;border-radius:50%;background:var(--gold-bright);
-  filter:blur(1px);opacity:0;animation:rise linear infinite;pointer-events:none}
+.mote{position:absolute;bottom:-3vh;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 12px 3px rgba(201,162,75,.55);filter:blur(.5px);opacity:0;animation:rise linear infinite;pointer-events:none}
 @keyframes rise{0%{transform:translateY(0);opacity:0}12%{opacity:.8}88%{opacity:.5}100%{transform:translateY(-108vh);opacity:0}}
 .hero-inner{position:relative;z-index:2;max-width:960px}
-.hero-art{width:min(320px,55vw);margin:0 auto 1.6rem;filter:drop-shadow(0 0 34px rgba(201,162,75,.35))}
+.hero-art{width:min(440px,78vw);margin:0 auto 1.6rem;filter:drop-shadow(0 18px 40px rgba(201,162,75,.35))}
 .hero-kicker{display:inline-block;letter-spacing:.4em;text-transform:uppercase;font-size:.75rem;
-  font-weight:700;color:var(--gold);margin-bottom:1.2rem}
+  font-weight:700;color:var(--terra);margin-bottom:1.2rem}
 h1{font-size:clamp(2.5rem,6.4vw,5rem);line-height:1.08;font-weight:600;letter-spacing:-.01em}
-.shimmer{background:linear-gradient(100deg,var(--gold) 20%,#f6e7bd 50%,var(--gold) 80%);
+.shimmer{background:linear-gradient(100deg,var(--terra) 15%,var(--gold) 42%,#e9cf92 52%,var(--gold) 62%,var(--terra) 88%);
   background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
   animation:shimmer 5s linear infinite;font-style:italic}
+#science .shimmer{background-image:linear-gradient(100deg,var(--gold) 20%,#f6e7bd 50%,var(--gold) 80%);
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text}
 @keyframes shimmer{to{background-position:-200% 0}}
-.hero-sub{max-width:640px;margin:1.6rem auto 2.4rem;font-size:clamp(1rem,1.6vw,1.18rem);color:#cbb9a0}
+.hero-sub{max-width:640px;margin:1.6rem auto 2.4rem;font-size:clamp(1rem,1.6vw,1.18rem);color:var(--ink-soft)}
 .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.55rem;padding:1rem 2rem;border-radius:999px;
   font-weight:700;text-decoration:none;font-size:1rem;transition:transform .25s,box-shadow .25s}
@@ -141,10 +144,10 @@ h1{font-size:clamp(2.5rem,6.4vw,5rem);line-height:1.08;font-weight:600;letter-sp
 .btn-primary{background:linear-gradient(135deg,var(--gold),#9d7a2e);color:var(--night);
   box-shadow:0 14px 36px rgba(201,162,75,.35)}
 .btn-primary:hover{box-shadow:0 20px 48px rgba(201,162,75,.5)}
-.btn-ghost{border:1.5px solid rgba(250,246,239,.5);color:var(--paper)}
-.btn-ghost:hover{background:var(--paper);color:var(--night)}
+.btn-ghost{border:1.5px solid rgba(36,28,20,.35);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
 .scroll-hint{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);z-index:2;
-  color:var(--gold);font-size:.8rem;letter-spacing:.2em;animation:bob 2.4s ease-in-out infinite}
+  color:var(--terra);font-size:.8rem;letter-spacing:.2em;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
 
 /* hero artwork animations */
@@ -154,6 +157,12 @@ h1{font-size:clamp(2.5rem,6.4vw,5rem);line-height:1.08;font-weight:600;letter-sp
 @keyframes pulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.06);opacity:1}}
 .petal{transform-origin:60px 96px;animation:bloom 6s ease-in-out infinite alternate}
 @keyframes bloom{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+.press{animation:press 2.4s ease-in-out infinite}
+@keyframes press{0%,100%{transform:translateY(0)}45%{transform:translateY(5px)}}
+.relief{opacity:0;animation:relief 4.2s ease-out infinite}
+@keyframes relief{0%{transform:translateY(8px);opacity:0}25%{opacity:.75}100%{transform:translateY(-32px);opacity:0}}
+.rays{animation:rays 7s ease-in-out infinite}
+@keyframes rays{0%,100%{opacity:.5}50%{opacity:1}}
 
 /* ---------- shared section styles ---------- */
 section{padding:clamp(4.5rem,9vw,8rem) clamp(1.2rem,5vw,4rem);position:relative}
@@ -174,8 +183,8 @@ h2{font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.16;margin:.6rem 0 1.2rem;fon
 .placeholder{background:#fff3cf;border-radius:6px;padding:0 .35rem;border-bottom:2px dashed var(--gold);color:var(--ink)}
 
 /* ---------- ribbon ---------- */
-.ribbon{background:var(--night);color:#d9c9ab;padding:1.05rem;overflow:hidden;white-space:nowrap;
-  border-top:1px solid rgba(201,162,75,.25);border-bottom:1px solid rgba(201,162,75,.25)}
+.ribbon{background:linear-gradient(90deg,#f6eedb,#f1e3c6);color:var(--ink-soft);padding:1.05rem;overflow:hidden;white-space:nowrap;
+  border-top:1px solid rgba(201,162,75,.35);border-bottom:1px solid rgba(201,162,75,.35)}
 .ribbon-track{display:inline-block;animation:marquee 32s linear infinite}
 .ribbon span{margin:0 2.2rem;font-size:.9rem;letter-spacing:.08em}
 .ribbon .dot{color:var(--gold)}
@@ -222,13 +231,23 @@ h2{font-size:clamp(2rem,3.8vw,3.1rem);line-height:1.16;margin:.6rem 0 1.2rem;fon
 .pill:hover{border-color:var(--gold-bright);color:var(--gold-bright)}
 .pill.active{background:var(--gold);color:var(--night);border-color:var(--gold)}
 
-/* ---------- foot map ---------- */
+/* ---------- foot map (anatomical foot ↔ body linked view) ---------- */
 #foot{background:var(--paper-2)}
-.foot-grid{display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:clamp(2rem,5vw,4rem);align-items:center;margin-top:2.4rem}
-@media(max-width:840px){.foot-grid{grid-template-columns:1fr}}
-.foot-zone{cursor:pointer;transition:opacity .25s,filter .25s;opacity:.85}
-.foot-zone:hover,.foot-zone.active{opacity:1;filter:brightness(1.12) drop-shadow(0 0 8px rgba(179,69,44,.4))}
-.foot-info{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem}
+.foot-stage{margin-top:2.6rem;background:linear-gradient(180deg,#fffdf8,#faf1e0);border:1px solid #eadfca;
+  border-radius:26px;box-shadow:var(--shadow);padding:clamp(.8rem,2.5vw,2rem)}
+.foot-stage svg{width:100%;height:auto}
+.foot-zone{cursor:pointer;transition:opacity .3s,filter .3s;opacity:.75}
+.foot-zone:hover,.foot-zone.active{opacity:1;filter:brightness(1.15) drop-shadow(0 0 10px rgba(179,69,44,.45))}
+.organ{opacity:.32;cursor:pointer;transition:opacity .45s,filter .45s;transform-box:fill-box;transform-origin:center}
+.organ:hover{opacity:.75}
+.organ.active{opacity:1;filter:drop-shadow(0 0 9px rgba(232,202,125,.95));animation:organPulse 2.2s ease-in-out infinite}
+@keyframes organPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.link{opacity:0;transition:opacity .6s}
+.link.active{opacity:1}
+.link-path{fill:none;stroke-width:2.6;stroke-dasharray:5 9;stroke-linecap:round;animation:flow 2.6s linear infinite}
+.link-glow{fill:none;stroke-width:7;opacity:.28;filter:blur(3px)}
+.stage-cap{font-family:var(--sans);font-size:12px;letter-spacing:.22em;fill:var(--gold-dim);font-weight:700}
+.foot-info{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:2rem;margin-top:1.6rem}
 .foot-info h3{font-size:1.4rem;color:var(--terra);margin-bottom:.5rem}
 .foot-legend{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem}
 .foot-legend .pill{border-color:#dcc9a8;color:var(--ink-soft)}
@@ -363,28 +382,77 @@ footer .zen{font-family:var(--serif);color:var(--gold-bright);font-size:1.2rem;m
   <div id="motes" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-art">
-      <svg viewBox="0 0 240 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of gentle hands above a blooming lotus">
+      <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cinematic illustration of a blind massage therapist easing tension from a client lying on a massage table">
         <defs>
-          <linearGradient id="gHand" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#e8ca7d"/><stop offset="1" stop-color="#c9a24b"/>
+          <radialGradient id="gGlow" cx=".5" cy=".42" r=".62">
+            <stop offset="0" stop-color="#ffe9b8" stop-opacity=".85"/><stop offset="1" stop-color="#ffe9b8" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="gSkin" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f0c9a2"/><stop offset="1" stop-color="#dfa87c"/>
           </linearGradient>
-          <linearGradient id="gLotus" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0" stop-color="#b3452c"/><stop offset="1" stop-color="#e07a4e"/>
+          <linearGradient id="gCloth" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#558872"/><stop offset="1" stop-color="#3e6b5a"/>
+          </linearGradient>
+          <linearGradient id="gRobe" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#c05a3e"/><stop offset="1" stop-color="#8c3016"/>
+          </linearGradient>
+          <linearGradient id="gTable" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#9c6a3e"/><stop offset="1" stop-color="#7c4f2a"/>
           </linearGradient>
         </defs>
-        <g fill="none" stroke="#c9a24b" stroke-width="2" stroke-linecap="round" opacity=".7">
-          <path class="wave-path" d="M40 90 Q120 60 200 90"/>
-          <path class="wave-path" d="M50 105 Q120 78 190 105" style="animation-delay:-1.2s"/>
-          <path class="wave-path" d="M62 120 Q120 96 178 120" style="animation-delay:-2.4s"/>
+        <!-- warm cinematic light -->
+        <ellipse cx="260" cy="150" rx="240" ry="140" fill="url(#gGlow)"/>
+        <g class="rays" fill="#f4dfa8" opacity=".7">
+          <polygon points="240,0 280,0 300,120 220,120"/>
+          <polygon points="150,0 180,0 210,110 150,110" opacity=".55"/>
+          <polygon points="330,0 360,0 350,110 300,110" opacity=".55"/>
         </g>
-        <g class="pulse" fill="url(#gHand)">
-          <path d="M78 30 q-14 4 -12 18 q2 12 16 16 l26 8 q6 2 8 -4 q2 -7 -5 -9 l-20 -7 q9 1 18 3 q7 1 8 -5 q1 -7 -7 -8 q-17 -4 -32 -12z"/>
-          <path d="M162 30 q14 4 12 18 q-2 12 -16 16 l-26 8 q-6 2 -8 -4 q-2 -7 5 -9 l20 -7 q-9 1 -18 3 q-7 1 -8 -5 q-1 -7 7 -8 q17 -4 32 -12z"/>
+        <!-- energy waves -->
+        <g fill="none" stroke="#c9a24b" stroke-width="2" stroke-linecap="round" opacity=".55">
+          <path class="wave-path" d="M110 96 Q260 66 410 96"/>
+          <path class="wave-path" d="M130 112 Q260 86 390 112" style="animation-delay:-1.6s"/>
         </g>
-        <g transform="translate(60,60)">
-          <path class="petal" d="M60 96 q-26 -8 -26 -34 q16 6 26 20 q10 -14 26 -20 q0 26 -26 34z" fill="url(#gLotus)"/>
-          <path class="petal" style="animation-delay:-3s" d="M60 96 q-40 -2 -46 -26 q22 -2 34 10 q-2 -18 12 -32 q14 14 12 32 q12 -12 34 -10 q-6 24 -46 26z" fill="#8c3016" opacity=".92"/>
-          <ellipse cx="60" cy="102" rx="42" ry="6" fill="#3e6b5a" opacity=".4"/>
+        <!-- ground shadow -->
+        <ellipse cx="260" cy="302" rx="195" ry="12" fill="rgba(60,38,16,.14)"/>
+        <!-- massage table -->
+        <rect x="92" y="220" width="336" height="16" rx="8" fill="#f4e7d2" stroke="#dcc9a8"/>
+        <rect x="90" y="234" width="340" height="20" rx="9" fill="url(#gTable)"/>
+        <rect x="112" y="252" width="13" height="48" rx="4" fill="#6e4526"/>
+        <rect x="395" y="252" width="13" height="48" rx="4" fill="#6e4526"/>
+        <!-- client lying face down -->
+        <g>
+          <circle cx="136" cy="204" r="17" fill="url(#gSkin)"/>
+          <path d="M120 197 a17 17 0 0 1 30 -6 q-4 -14 -18 -13 q-14 1 -12 19z" fill="#3a2a1c"/>
+          <path d="M128 208 q4 3 8 0" stroke="#8c5a33" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <path d="M154 220 q12 -24 56 -26 q48 -2 70 12 q8 6 10 14z" fill="url(#gSkin)"/>
+          <path d="M282 220 q42 -14 92 -10 q26 2 38 10z" fill="url(#gCloth)"/>
+          <path d="M226 220 q30 -12 60 -6 l-4 6z" fill="url(#gCloth)" opacity=".9"/>
+          <ellipse cx="420" cy="212" rx="12" ry="7" fill="url(#gSkin)"/>
+          <ellipse cx="404" cy="207" rx="11" ry="6" fill="url(#gSkin)"/>
+          <path d="M168 216 q-8 16 -4 34" stroke="url(#gSkin)" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <circle cx="165" cy="253" r="6" fill="url(#gSkin)"/>
+        </g>
+        <!-- therapist (pressing rhythm) -->
+        <g class="press">
+          <circle cx="254" cy="122" r="23" fill="url(#gSkin)"/>
+          <path d="M231 116 a23 23 0 0 1 44 -5 q2 -22 -22 -23 q-24 -1 -22 28z" fill="#241c14"/>
+          <path d="M244 124 q4 3 7 0 M262 124 q4 3 7 0" stroke="#6e4526" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+          <path d="M250 136 q5 4 10 0" stroke="#b3452c" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <path d="M212 232 q0 -66 42 -68 q42 2 44 68z" fill="url(#gRobe)"/>
+          <path d="M240 150 q14 8 30 0 l-4 18 q-11 6 -22 0z" fill="#f6efe2"/>
+          <path d="M228 170 q-14 18 -14 34" stroke="url(#gSkin)" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <path d="M282 170 q10 16 6 32" stroke="url(#gSkin)" stroke-width="13" stroke-linecap="round" fill="none"/>
+          <ellipse cx="214" cy="208" rx="9" ry="6" fill="url(#gSkin)"/>
+          <ellipse cx="288" cy="206" rx="9" ry="6" fill="url(#gSkin)"/>
+        </g>
+        <!-- warm pressure glow under the hands -->
+        <circle class="pulse" cx="214" cy="206" r="13" fill="#e8ca7d" opacity=".38"/>
+        <circle class="pulse" cx="288" cy="204" r="13" fill="#e8ca7d" opacity=".38" style="animation-delay:-2s"/>
+        <!-- tension leaving the body -->
+        <g stroke="#c9a24b" stroke-width="3" stroke-linecap="round" fill="none">
+          <path class="relief" d="M196 186 q10 -9 20 0"/>
+          <path class="relief" style="animation-delay:-1.4s" d="M240 178 q10 -9 20 0"/>
+          <path class="relief" style="animation-delay:-2.8s" d="M292 184 q10 -9 20 0"/>
         </g>
       </svg>
     </div>
@@ -601,47 +669,128 @@ footer .zen{font-family:var(--serif);color:var(--gold-bright);font-size:1.2rem;m
     <div class="reveal">
       <span class="sec-kicker"><span lang-en>Reflexology Map</span><span lang-zh>足底反射区</span></span>
       <h2><span lang-en>Your whole body, mapped on one foot</span><span lang-zh>一只脚，映照全身</span></h2>
-      <p class="lead"><span lang-en>Reflexology holds that zones on the sole correspond to organs and systems. Tap a zone to see what it connects to.</span><span lang-zh>足底反射疗法认为，脚底各区域对应身体的器官与系统。点击区域了解其对应部位。</span></p>
+      <p class="lead"><span lang-en>Reflexology holds that zones on the sole correspond to organs and systems. Tap a zone — an animated pathway shows exactly where it connects in the body, so you don't have to imagine.</span><span lang-zh>足底反射疗法认为，脚底各区域对应身体的器官与系统。点击反射区，动画路径会实时连到身体的对应部位——一目了然。</span></p>
     </div>
-    <div class="foot-grid">
-      <div class="reveal">
-        <svg viewBox="0 0 220 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Foot reflexology zone map">
-          <defs>
-            <linearGradient id="footBg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f6d9b8"/><stop offset="1" stop-color="#eec49a"/>
-            </linearGradient>
-          </defs>
-          <!-- sole outline -->
-          <path d="M108 8 C 152 8, 178 40, 180 92 C 182 150, 176 200, 178 254 C 180 310, 170 372, 128 400 C 96 418, 62 400, 54 356 C 47 318, 52 270, 50 216 C 48 158, 42 108, 58 62 C 70 26, 84 8, 108 8 z" fill="url(#footBg)" stroke="#caa06a" stroke-width="2.5"/>
-          <!-- toes -->
-          <circle cx="76" cy="30" r="17" fill="url(#footBg)" stroke="#caa06a" stroke-width="2"/>
-          <circle cx="112" cy="20" r="12" fill="url(#footBg)" stroke="#caa06a" stroke-width="2"/>
-          <circle cx="140" cy="24" r="11" fill="url(#footBg)" stroke="#caa06a" stroke-width="2"/>
-          <circle cx="163" cy="34" r="10" fill="url(#footBg)" stroke="#caa06a" stroke-width="2"/>
-          <circle cx="180" cy="50" r="9" fill="url(#footBg)" stroke="#caa06a" stroke-width="2"/>
-          <!-- zones -->
-          <g class="foot-zone" data-zone="head" tabindex="0" role="button" aria-label="Toes zone — head and brain">
-            <circle cx="76" cy="30" r="14" fill="#b3452c" opacity=".75"/>
-            <circle cx="112" cy="20" r="9" fill="#b3452c" opacity=".75"/>
-            <circle cx="140" cy="24" r="8" fill="#b3452c" opacity=".75"/>
-            <circle cx="163" cy="34" r="7" fill="#b3452c" opacity=".75"/>
+    <div class="foot-stage reveal">
+      <svg viewBox="0 0 780 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive reflexology map: an anatomical sole of a foot on the left, a human body on the right, and an animated pathway connecting the selected foot zone to its body region">
+        <defs>
+          <linearGradient id="skinG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7ddbd"/><stop offset="1" stop-color="#e4ad7d"/>
+          </linearGradient>
+          <linearGradient id="bodyG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#57432c"/><stop offset="1" stop-color="#2e2214"/>
+          </linearGradient>
+          <filter id="soft2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+          <filter id="soft4" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4"/></filter>
+        </defs>
+        <text class="stage-cap" x="145" y="548" text-anchor="middle" lang-en>SOLE OF THE FOOT</text>
+        <text class="stage-cap" x="145" y="548" text-anchor="middle" lang-zh>足 底</text>
+        <text class="stage-cap" x="602" y="548" text-anchor="middle" lang-en>WHERE IT CONNECTS</text>
+        <text class="stage-cap" x="602" y="548" text-anchor="middle" lang-zh>对 应 部 位</text>
+        <!-- ===== anatomical sole (left) ===== -->
+        <g transform="translate(30,40)">
+          <path d="M108 8 C 152 8, 178 40, 180 92 C 182 150, 176 200, 178 254 C 180 310, 170 372, 128 400 C 96 418, 62 400, 54 356 C 47 318, 52 270, 50 216 C 48 158, 42 108, 58 62 C 70 26, 84 8, 108 8 z" fill="url(#skinG)" stroke="#d5a877" stroke-width="2.2"/>
+          <circle cx="76" cy="30" r="17" fill="url(#skinG)" stroke="#d5a877" stroke-width="1.8"/>
+          <circle cx="112" cy="20" r="12" fill="url(#skinG)" stroke="#d5a877" stroke-width="1.8"/>
+          <circle cx="140" cy="24" r="11" fill="url(#skinG)" stroke="#d5a877" stroke-width="1.8"/>
+          <circle cx="163" cy="34" r="10" fill="url(#skinG)" stroke="#d5a877" stroke-width="1.8"/>
+          <circle cx="180" cy="50" r="9" fill="url(#skinG)" stroke="#d5a877" stroke-width="1.8"/>
+          <!-- flesh modelling: highlights, arch shadow, heel pad, creases -->
+          <ellipse cx="76" cy="34" rx="10" ry="7" fill="#e2ae7f" opacity=".45" filter="url(#soft2)"/>
+          <ellipse cx="115" cy="100" rx="52" ry="32" fill="#fff3e0" opacity=".55" filter="url(#soft4)"/>
+          <ellipse cx="112" cy="205" rx="42" ry="66" fill="#c68d5c" opacity=".22" filter="url(#soft4)"/>
+          <ellipse cx="108" cy="372" rx="38" ry="30" fill="#cf9a68" opacity=".28" filter="url(#soft4)"/>
+          <g stroke="#c49a6c" stroke-width="1.3" opacity=".4" fill="none">
+            <path d="M70 136 q46 16 100 4"/>
+            <path d="M74 252 q42 12 92 2"/>
+            <path d="M72 332 q40 14 90 4"/>
+          </g>
+          <!-- reflex zones (soft anatomical overlays) -->
+          <g class="foot-zone active" data-zone="head" tabindex="0" role="button" aria-label="Toes zone — head and brain">
+            <g filter="url(#soft2)">
+              <circle cx="76" cy="30" r="14" fill="#b3452c" opacity=".75"/>
+              <circle cx="112" cy="20" r="9" fill="#b3452c" opacity=".75"/>
+              <circle cx="140" cy="24" r="8" fill="#b3452c" opacity=".75"/>
+              <circle cx="163" cy="34" r="7" fill="#b3452c" opacity=".75"/>
+            </g>
           </g>
           <g class="foot-zone" data-zone="chest" tabindex="0" role="button" aria-label="Ball of foot — chest, heart and lungs">
-            <path d="M62 70 C 90 56, 150 58, 172 78 C 176 100, 174 116, 170 130 C 130 144, 90 142, 60 126 C 58 106, 58 86, 62 70 z" fill="#c9a24b" opacity=".8"/>
+            <path filter="url(#soft2)" d="M62 70 C 90 56, 150 58, 172 78 C 176 100, 174 116, 170 130 C 130 144, 90 142, 60 126 C 58 106, 58 86, 62 70 z" fill="#c9a24b" opacity=".8"/>
           </g>
           <g class="foot-zone" data-zone="digest" tabindex="0" role="button" aria-label="Arch — digestive system">
-            <path d="M60 140 C 96 156, 134 158, 168 144 C 172 180, 172 216, 170 246 C 132 262, 92 260, 54 244 C 54 210, 56 172, 60 140 z" fill="#3e6b5a" opacity=".72"/>
+            <path filter="url(#soft2)" d="M60 140 C 96 156, 134 158, 168 144 C 172 180, 172 216, 170 246 C 132 262, 92 260, 54 244 C 54 210, 56 172, 60 140 z" fill="#3e6b5a" opacity=".72"/>
           </g>
           <g class="foot-zone" data-zone="lower" tabindex="0" role="button" aria-label="Lower arch — intestines and lower back">
-            <path d="M54 258 C 92 274, 132 276, 170 260 C 172 288, 168 314, 160 336 C 126 350, 88 348, 60 330 C 54 308, 53 282, 54 258 z" fill="#a5713f" opacity=".72"/>
+            <path filter="url(#soft2)" d="M54 258 C 92 274, 132 276, 170 260 C 172 288, 168 314, 160 336 C 126 350, 88 348, 60 330 C 54 308, 53 282, 54 258 z" fill="#a5713f" opacity=".72"/>
           </g>
           <g class="foot-zone" data-zone="heel" tabindex="0" role="button" aria-label="Heel — pelvis and sleep">
-            <path d="M62 342 C 90 358, 124 360, 156 348 C 152 380, 134 402, 108 406 C 82 408, 64 384, 62 342 z" fill="#6b4a8c" opacity=".62"/>
+            <path filter="url(#soft2)" d="M62 342 C 90 358, 124 360, 156 348 C 152 380, 134 402, 108 406 C 82 408, 64 384, 62 342 z" fill="#6b4a8c" opacity=".62"/>
           </g>
-        </svg>
-      </div>
-      <div class="reveal d1">
-        <div class="foot-info" aria-live="polite">
+        </g>
+        <!-- ===== body silhouette with organs (right) ===== -->
+        <g transform="translate(475,45) scale(.85)">
+          <g fill="url(#bodyG)" stroke="#5d4a30" stroke-width="1.2">
+            <circle cx="150" cy="58" r="30"/>
+            <path d="M150 88 q4 8 4 16 h-8 q0 -8 4 -16z"/>
+            <path d="M108 112 q42 -14 84 0 q10 60 4 118 q-4 46 -12 72 h-68 q-8 -26 -12 -72 q-6 -58 4 -118z"/>
+            <path d="M106 116 q-22 32 -32 84 q-6 40 -10 76" fill="none" stroke="url(#bodyG)" stroke-width="22" stroke-linecap="round"/>
+            <path d="M194 116 q22 32 32 84 q6 40 10 76" fill="none" stroke="url(#bodyG)" stroke-width="22" stroke-linecap="round"/>
+            <path d="M132 300 q-4 90 -6 200" fill="none" stroke="url(#bodyG)" stroke-width="28" stroke-linecap="round"/>
+            <path d="M168 300 q4 90 6 200" fill="none" stroke="url(#bodyG)" stroke-width="28" stroke-linecap="round"/>
+            <ellipse cx="124" cy="516" rx="20" ry="10"/>
+            <ellipse cx="176" cy="516" rx="20" ry="10"/>
+          </g>
+          <!-- organs -->
+          <g class="organ active" data-zone="head" aria-hidden="true">
+            <ellipse cx="150" cy="52" rx="19" ry="13" fill="#c65a3e"/>
+            <path d="M136 52 q7 -10 14 0 q7 10 14 0" stroke="#8c3016" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="organ" data-zone="chest" aria-hidden="true">
+            <path d="M128 138 q-14 6 -12 34 q2 20 16 18 q10 -2 10 -22 v-24 q0 -10 -14 -6z" fill="#d8b25c"/>
+            <path d="M172 138 q14 6 12 34 q-2 20 -16 18 q-10 -2 -10 -22 v-24 q0 -10 14 -6z" fill="#d8b25c"/>
+            <path d="M150 158 q-10 -8 -16 2 q-4 8 4 16 l12 10 12 -10 q8 -8 4 -16 q-6 -10 -16 -2z" fill="#c0524f"/>
+          </g>
+          <g class="organ" data-zone="digest" aria-hidden="true">
+            <path d="M132 196 q-16 6 -10 22 q6 14 24 12 q16 -2 14 -16 q-2 -16 -28 -18z" fill="#4e8069"/>
+            <path d="M158 194 q22 0 26 14 q2 10 -12 12 q-16 0 -20 -12 q-2 -12 6 -14z" fill="#3e6b5a"/>
+          </g>
+          <g class="organ" data-zone="lower" aria-hidden="true">
+            <path d="M128 244 h44 q9 8 0 15 h-44 q-9 8 0 15 h44" stroke="#a5713f" stroke-width="9" stroke-linecap="round" fill="none"/>
+          </g>
+          <g class="organ" data-zone="heel" aria-hidden="true">
+            <path d="M124 292 q-6 22 12 30 q14 6 14 -8 q0 14 14 8 q18 -8 12 -30 q-12 8 -26 8 q-14 0 -26 -8z" fill="#7a5a9c"/>
+          </g>
+        </g>
+        <!-- ===== animated foot→body pathways ===== -->
+        <g class="link active" data-zone="head" aria-hidden="true">
+          <path class="link-glow" stroke="#b3452c" d="M196 72 C 320 30, 460 44, 578 86"/>
+          <path class="link-path" stroke="#b3452c" d="M196 72 C 320 30, 460 44, 578 86"/>
+          <circle r="4.5" fill="#b3452c"><animateMotion dur="2.6s" repeatCount="indefinite" path="M196 72 C 320 30, 460 44, 578 86"/></circle>
+        </g>
+        <g class="link" data-zone="chest" aria-hidden="true">
+          <path class="link-glow" stroke="#c9a24b" d="M202 140 C 330 118, 452 150, 572 178"/>
+          <path class="link-path" stroke="#c9a24b" d="M202 140 C 330 118, 452 150, 572 178"/>
+          <circle r="4.5" fill="#c9a24b"><animateMotion dur="2.6s" repeatCount="indefinite" path="M202 140 C 330 118, 452 150, 572 178"/></circle>
+        </g>
+        <g class="link" data-zone="digest" aria-hidden="true">
+          <path class="link-glow" stroke="#3e6b5a" d="M200 235 C 330 244, 452 232, 572 220"/>
+          <path class="link-path" stroke="#3e6b5a" d="M200 235 C 330 244, 452 232, 572 220"/>
+          <circle r="4.5" fill="#3e6b5a"><animateMotion dur="2.6s" repeatCount="indefinite" path="M200 235 C 330 244, 452 232, 572 220"/></circle>
+        </g>
+        <g class="link" data-zone="lower" aria-hidden="true">
+          <path class="link-glow" stroke="#a5713f" d="M198 338 C 330 344, 460 300, 572 266"/>
+          <path class="link-path" stroke="#a5713f" d="M198 338 C 330 344, 460 300, 572 266"/>
+          <circle r="4.5" fill="#a5713f"><animateMotion dur="2.6s" repeatCount="indefinite" path="M198 338 C 330 344, 460 300, 572 266"/></circle>
+        </g>
+        <g class="link" data-zone="heel" aria-hidden="true">
+          <path class="link-glow" stroke="#6b4a8c" d="M182 415 C 330 436, 470 350, 572 300"/>
+          <path class="link-path" stroke="#6b4a8c" d="M182 415 C 330 436, 470 350, 572 300"/>
+          <circle r="4.5" fill="#6b4a8c"><animateMotion dur="2.6s" repeatCount="indefinite" path="M182 415 C 330 436, 470 350, 572 300"/></circle>
+        </g>
+      </svg>
+    </div>
+    <div class="reveal d1">
+      <div class="foot-info" aria-live="polite">
           <h3 id="footTitle"><span lang-en>Toes — Head &amp; Brain</span><span lang-zh>脚趾——头部与大脑</span></h3>
           <p id="footDesc" class="lead" style="max-width:none">
             <span lang-en>Working the toes stimulates zones linked to the head, brain and sinuses — our therapists use it to relieve headaches, mental fatigue and poor sleep.</span>
@@ -656,7 +805,6 @@ footer .zen{font-family:var(--serif);color:var(--gold-bright);font-size:1.2rem;m
           </div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -1025,12 +1173,15 @@ function showZone(id){
   document.getElementById('footDesc').innerHTML=`<span lang-en>${d.dEn}</span><span lang-zh>${d.dZh}</span>`;
   document.querySelectorAll('#footLegend .pill').forEach(p=>p.classList.toggle('active',p.dataset.zone===id));
   document.querySelectorAll('.foot-zone').forEach(z=>z.classList.toggle('active',z.dataset.zone===id));
+  document.querySelectorAll('.link').forEach(l=>l.classList.toggle('active',l.dataset.zone===id));
+  document.querySelectorAll('.organ').forEach(o=>o.classList.toggle('active',o.dataset.zone===id));
 }
 document.querySelectorAll('#footLegend .pill').forEach(p=>p.addEventListener('click',()=>showZone(p.dataset.zone)));
 document.querySelectorAll('.foot-zone').forEach(z=>{
   z.addEventListener('click',()=>showZone(z.dataset.zone));
   z.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();showZone(z.dataset.zone)}});
 });
+document.querySelectorAll('.organ').forEach(o=>o.addEventListener('click',()=>showZone(o.dataset.zone)));
 </script>
 <script src="js/site-config.js" defer></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});</script>
